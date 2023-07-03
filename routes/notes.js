@@ -59,3 +59,5 @@ notes.post('/', (req, res) => {
         res.json(`Note added successfully`);
     }
 });
+
+module.exports = notes;
