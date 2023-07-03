@@ -12,7 +12,7 @@ notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-// GET Route for a specific tip
+// GET Route for a specific tip- jusn
 notes.get('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
     readFromFile('./db/db.json')
@@ -22,6 +22,23 @@ notes.get('/:note_id', (req, res) => {
         return result.length > 0
         ? res.json(result)
         : res.json('No note with that ID');
+    });
+});
+
+// DELETE Route for a specific tip - jsn
+notes.delete('/:note_id', (req, res) => {
+    const noteId = req.params.note_id;
+    readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+        //make a new array of all notes except the one with the ID provided in the URL = jsn
+        const result = json.filter((note) => note.id !== noteId);
+
+        //save that array to the filesystem - jsn
+        writeToFile('./db/db.json', result);
+
+        // respond to the DELETE request
+        res.json(`Item ${noteId} has been deleted`);
     });
 });
 
