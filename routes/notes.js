@@ -1,5 +1,5 @@
 const notes = require('express').Router();
-const { v4: uuid4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const {
     readFromFile,
     readAndAppend,
@@ -37,9 +37,25 @@ notes.delete('/:note_id', (req, res) => {
         //save that array to the filesystem - jsn
         writeToFile('./db/db.json', result);
 
-        // respond to the DELETE request
+        // respond to the DELETE request -jsn
         res.json(`Item ${noteId} has been deleted`);
     });
 });
 
+//POST Route for a new UX/UI note - jsn
+notes.post('/', (req, res) => {
+    console.log(req.body);
 
+    const { title, text } = req.body;
+
+    if (req.body) {
+        const newNote = {
+            title,
+            text,
+            id: uuidv4(),
+        };
+
+        readAndAppend(newNote, './db/db.json');
+        res.json(`Note added successfully`);
+    }
+});
