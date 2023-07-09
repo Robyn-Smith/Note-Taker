@@ -8,7 +8,7 @@ const {
 
 //GET Route for retrieving all the tips - jsn
 notes.get('/', (req, res) => {
-    console.info(`${req.method} request received for notes`);
+    console.info(`${req.method} this request has been successful`);
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
@@ -18,10 +18,10 @@ notes.get('/:note_id', (req, res) => {
     readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-        const  result = json.filter((note) => note.tip_id === tipID);
-        return result.length > 0
-        ? res.json(result)
-        : res.json('No note with that ID');
+        const  product = json.filter((note) => note.tip_id === tipID);
+        return product.length > 0
+        ? res.json(product)
+        : res.json('There is not a note with this ID');
     });
 });
 
@@ -32,13 +32,13 @@ notes.delete('/:note_id', (req, res) => {
     .then((data) => JSON.parse(data))
     .then((json) => {
         //make a new array of all notes except the one with the ID provided in the URL = jsn
-        const result = json.filter((note) => note.id !== noteId);
+        const product = json.filter((note) => note.id !== noteId);
 
         //save that array to the filesystem - jsn
-        writeToFile('./db/db.json', result);
+        writeToFile('./db/db.json', product);
 
         // respond to the DELETE request -jsn
-        res.json(`Item ${noteId} has been deleted`);
+        res.json(`This note ${noteId} has been removed`);
     });
 });
 
@@ -56,7 +56,9 @@ notes.post('/', (req, res) => {
         };
 
         readAndAppend(newNote, './db/db.json');
-        res.json(`Note added successfully`);
+        res.json(`This note has successfully been added`);
+    } else {
+        res.error('There was an error');
     }
 });
 
