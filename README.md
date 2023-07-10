@@ -1,17 +1,5 @@
 # Note-Taker
 
-
-
-
-The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
-
-## Bonus
-
-You haven’t learned how to handle DELETE requests, but this application offers that functionality on the front end. As a bonus, try to add the DELETE route to the application using the following guideline:
-
-* `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
-
-
 # Description
 This application allows the user to write and save notes. This is a useful application in createing to do lists, organising routines and setting important reminders for any user. The application uses Express.js back end to save and retrieve note data from a JSON file. 
 
