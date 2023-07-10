@@ -15,7 +15,7 @@ notes.get('/', (req, res) => {
 
 // this is a get route for individually selected notes
 notes.get('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+    const noteID = req.params.note_id;
     readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
@@ -28,18 +28,18 @@ notes.get('/:note_id', (req, res) => {
 
 // this is a delete route for individually selected notes
 notes.delete('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+    const noteID = req.params.note_id;
     readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
         //this creates a new array with all nites except for the one with the id selected to delete
-        const product = json.filter((note) => note.id !== noteId);
+        const product = json.filter((note) => note.id !== noteID);
 
         //this saves the new array to the file
         writeToFile('./db/db.json', product);
 
         // this string informs if the delte request was successful
-        res.json(`This note ${noteId} has been removed`);
+        res.json(`This note ${noteID} has been removed`);
     });
 });
 

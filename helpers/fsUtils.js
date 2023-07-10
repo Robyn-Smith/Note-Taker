@@ -1,5 +1,4 @@
-//mini project...
-
+//required neccessary packages and files
 const fs = require('fs');
 const util = require('util');
 
