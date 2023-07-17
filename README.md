@@ -18,4 +18,4 @@ The user can either type:
 ```
 npm run start
 ```
-in the terminal and click on the http://localhost:3001 link or navigate to this URL in their browser. They will be greeted with a welcome page with the option "get started". Once clicked, this will redirect the user to the main page where they can enter their notes, view the n
+in the terminal and click on the http://localhost:3001 link or navigate to this URL in their browser. They will be greeted with a welcome page with the option "get started". Once clicked, this will redirect the user to the main page where they can enter their notes, view the notes they have previously written by clicking on the accordinh note title on the left side.
