@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js');
 
+//the following line makes the app compatible with Heroku
 const PORT = process.env.PORT || 3001;
 
 const app = express();

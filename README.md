@@ -18,4 +18,11 @@ The user can either type:
 ```
 npm run start
 ```
-in the terminal and click on the http://localhost:3001 link or navigate to this URL in their browser. They will be greeted with a welcome page with the option "get started". Once clicked, this will redirect the user to the main page where they can enter their notes, view the notes they have previously written by clicking on the accordinh note title on the left side.
+In the terminal, and click on the http://localhost:3001 link or navigate to this URL in their browser. They will be greeted with a welcome page with the option "get started". Once clicked, this will redirect the user to the main page where they can enter their notes, view the notes they have previously written by clicking on the according note title on the left side. The user can also delete previous notes by selecting the red bin icon adjacent to the note. The user can add new notes by selecting the plus icon in the top right corner and entering the note and title in the text area. The not can then be saved by selecting the save icon next to the plus symbol in the top right corner.
+
+# Screenshots of Application
+![A screenshot of the 'get started' welcome page](/public/assets/Screenshot%20(263).png)
+![A screenshot of the main page](/public/assets/Screenshot%20(264).png)
+![A screenshot of an example note](/public/assets/Screenshot%20(265).png)
+
+# Link to deployed heroku
