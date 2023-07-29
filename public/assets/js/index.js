@@ -33,14 +33,6 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
-const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
 const rendercurrentNote = () => {
   hide(saveBtn);
 
@@ -63,24 +55,6 @@ const SaveNote = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    rendercurrentNote();
-  });
-};
-
-// this deletes the selected note
-const NoteDelete = (event) => {
-  // Prevents the click listener for the list from being called when the button inside of it is clicked -jsn
-  event.stopPropagation();
-
-  const note = event.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
-  if (currentNote.id === noteId) {
-    currentNote = {};
-  }
-
-  deleteNote(noteId).then(() => {
     getAndRenderNotes();
     rendercurrentNote();
   });
@@ -121,6 +95,32 @@ const renderList = async (notes) => {
   }
 
   let ListItems = [];
+  
+const deleteNote = (id) =>
+  fetch(`/api/notes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  
+// this deletes the selected note
+const NoteDelete = (event) => {
+  // this stops the click listerner that opens the note from activating when the delete button inside of the list is clicked 
+  event.stopPropagation();
+
+  const note = event.target;
+  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+
+  if (currentNote.id === noteId) {
+    currentNote = {};
+  }
+
+  deleteNote(noteId).then(() => {
+    getAndRenderNotes();
+    rendercurrentNote();
+  });
+};
 
   // this creates the html list with a delete button
   const createList = (text, delBtn = true) => {
