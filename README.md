@@ -27,3 +27,7 @@ In the terminal, and click on the http://localhost:3001 link or navigate to this
 
 # Link to deployed heroku
 https://robynsmithnotetaker-962a5cba8ebf.herokuapp.com/
+
+# Walkthrough Video
+https://www.youtube.com/watch?v=A8sK73erHcU
+
